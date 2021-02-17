@@ -3,9 +3,9 @@ package main.pr1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class pr1 {
+public class Function {
     @FunctionalInterface
-    public interface Function<T, R> {
+    public interface Func<T, R> {
         R apply(T t);
     }
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class pr1 {
             word = console.nextLine();
             if  (word.equals("end")){k=1;}
         }
-        Function string_reverse = x -> {
+        Func string_reverse = x -> {
             StringBuilder newStr = new StringBuilder((String) x);
             newStr.reverse();
             return newStr;
