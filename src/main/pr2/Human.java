@@ -15,7 +15,7 @@ class Human {
     private LocalDate birthDate;
     private int weight;
 
-    public Human(void setAge, void setFirstName, void setLastName, void setbirthDate, void setWeight) {
+    public Human() {
     }
 
     public void setAge() {
