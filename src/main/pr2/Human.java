@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
-class Human {
+class Human extends ListOfHuman{
     Scanner console = new Scanner(System.in);
     private int age;
     private String firstName;
@@ -17,7 +17,9 @@ class Human {
 
     public Human() {
     }
+    public Human(int age, String fname, String lname, LocalDate BD, int weight){
 
+    }
     public void setAge() {
         System.out.print("Age: ");
         age = console.nextInt();
