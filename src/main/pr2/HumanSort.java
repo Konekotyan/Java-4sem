@@ -1,56 +1,34 @@
 package main.pr2;
 
-import java.util.Collection;
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 import java.util.*;
+import java.util.stream.Stream;
 
+public class HumanSort {
+    public static void main(String[] args) {
+        List<Human> listOfHumans = new ArrayList<>();
 
-import static jdk.vm.ci.sparc.SPARC.o2;
+        listOfHumans.add(new Human(43, "Jasper", "Иванов", LocalDate.of(1978,3,11), 83));
+        listOfHumans.add(new Human(38, "Kelley", "Сидоров", LocalDate.of(1983,12,16), 92));
+        listOfHumans.add(new Human(14, "Christopher", "Петров", LocalDate.of(2007,8,22), 62));
+        listOfHumans.add(new Human(22, "Lambert", "Оконцев", LocalDate.of(1999,1,15), 85));
 
+        listOfHumans.stream().sorted(Comparator.comparing(Human::getWeight).reversed()).forEach(System.out::println);
 
-public class HumanSort implements Comparable<Human>{
-    private static void testSorted() {
+        System.out.println();
 
+        listOfHumans.stream().filter(human -> !human.getLastName().equals("Иванов")).forEach(System.out::println);
 
-        ListOfHuman H = new ListOfHuman();
-        List<Human> a = H.getListOfHumans();
-        Comparator<ListOfHuman> byW = (o1,o2) ->o1.getWeight().compareTo(o2.getWeight());
-        List<ListOfHuman> byReverseWeight = (List<ListOfHuman>) a.stream().sorted(byW.reversed());
+        System.out.println();
 
+        listOfHumans.stream().sorted(Comparator.comparing(Human::getAge)).forEach(System.out::println);
+        System.out.println();
+        Stream<Human> humans = listOfHumans.stream();
+        int sum = 1;
+        sum *= humans.mapToInt(Human::getAge).reduce(1,(a, b) -> a*b);
 
-        Collection<ListOfHuman> byWe = a.stream().sorted((o1,o2) ->-o1.getWeight().compareTo(o2.getWeight())).collect(Collectors.toList());
-    }
-
-}
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Human)) return false;
-        Human people = (Human) o;
-        Object age = people.getAge();
-        Object fname = people.getFirstName();
-        Object lname = people.getLastName();
-        Object bd = people.getBD();
-        Object weight = people.getWeight();
-        return Objects.equals(age, people.getAge()) &&
-                Objects.equals(fname, people.getFirstName()) &&
-                Objects.equals(lname, people.getLastName()) &&
-                Objects.equals(bd, people.getbirthDate())&&
-                Objects.equals(weight, people.getWeight());
-    }
-
-    @Override
-    public int compareTo(ListOfHuman another) {
-        int enabledComparison = Boolean.compare(isEnabled(), another.isEnabled());
-
-        if (enabledComparison != 0) {
-            return enabledComparison;
-        }
-
-        return Integer.compare(getPriority(), another.getPriority());
+        System.out.println(sum);
     }
 }
