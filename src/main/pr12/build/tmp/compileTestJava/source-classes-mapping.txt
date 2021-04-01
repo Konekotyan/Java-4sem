@@ -1,0 +1,2 @@
+ru/mirea/pr12/Task12ApplicationTests.java
+ ru.mirea.pr12.Task12ApplicationTests
