@@ -14,10 +14,12 @@ import java.security.NoSuchAlgorithmException;
 
 @Component
 public class FileWorker {
-    @Value("${inputPath}")
+    @Value("D:\\Java\\4sem\\src\\main\\pr12\\src\\main\\java\\ru\\mirea\\pr12\\files\\file1")
     private String inputPath;
-    @Value("${outputPath}")
+    @Value("D:\\Java\\4sem\\src\\main\\pr12\\src\\main\\java\\ru\\mirea\\pr12\\files\\file2")
     private String outputPath;
+    @Value("D:\\Java\\4sem\\src\\main\\pr12\\src\\main\\java\\ru\\mirea\\pr12\\files\\file3")
+    private String newPath;
     private File file;
 
 
@@ -27,7 +29,7 @@ public class FileWorker {
         try {
             file = new File(inputPath);
             if (!file.exists()) {
-                writeToFile(outputPath, "None");
+                writeToFile(newPath, "None");
                 return;
             }
             String text = readFromFile(inputPath);
