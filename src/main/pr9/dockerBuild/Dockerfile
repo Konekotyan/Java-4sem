@@ -1,4 +1,4 @@
 FROM openjdk:15
 WORKDIR /
-ADD task9-1.0.jar task9-1.0.jar
-CMD java -jar task9-1.0.jar
+ADD pr9-1.0.jar pr9-1.0.jar
+CMD java -jar pr9-1.0.jar

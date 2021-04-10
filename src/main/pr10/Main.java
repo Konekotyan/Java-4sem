@@ -14,8 +14,8 @@ public class Main {
         Middle middle = (Middle) context.getBean("middle");
         Senior senior = context.getBean("senior", Senior.class);
 
-        System.out.println(junior.getMastery());
-        System.out.println(middle.getMastery());
-        System.out.println(senior.getMastery());
+        junior.doCoding();
+        middle.doCoding();
+        senior.doCoding();
     }
 }

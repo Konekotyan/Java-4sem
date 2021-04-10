@@ -1,10 +1,13 @@
 package main.pr10.mastery;
 
 
-public class Middle {
+import main.pr10.Programmer;
+
+public class Middle implements Programmer {
     private String mastery = "Middle";
 
-    public Object getMastery() {
-        return mastery;
+    @Override
+    public void doCoding() {
+        System.out.println(mastery);
     }
 }

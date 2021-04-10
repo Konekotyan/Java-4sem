@@ -1,9 +1,12 @@
 package main.pr10.mastery;
 
-public class Senior{
+import main.pr10.Programmer;
+
+public class Senior implements Programmer {
     private String mastery = "Senior";
 
-    public Object getMastery() {
-        return mastery;
+    @Override
+    public void doCoding() {
+        System.out.println(mastery);
     }
 }

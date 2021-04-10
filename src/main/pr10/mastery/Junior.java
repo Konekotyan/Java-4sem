@@ -1,10 +1,12 @@
 package main.pr10.mastery;
 
-import org.springframework.stereotype.Component;
-public class Junior {
+import main.pr10.Programmer;
+
+public class Junior implements Programmer {
     private String mastery = "Junior";
 
-    public Object getMastery() {
-        return mastery;
+    @Override
+    public void doCoding() {
+        System.out.println(mastery);
     }
 }

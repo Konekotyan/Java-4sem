@@ -32,12 +32,12 @@ task copyJarToRoot(type: Copy){
 
 task createDocker(type: Exec){
     workingDir 'dockerBuild'
-    commandLine "docker", "build", "-t", "task9:1.0", "."
+    commandLine "docker", "build", "-t", "pr9:1.0", "."
     finalizedBy{
         runDocker
     }
 }
 
 task runDocker(type: Exec){
-    commandLine "docker", "run", "task9:1.0"
+    commandLine "docker", "run", "pr9:1.0"
 }

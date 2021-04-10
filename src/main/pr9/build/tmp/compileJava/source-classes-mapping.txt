@@ -1,2 +1,2 @@
-ru/Main.java
- ru.Main
+ru/mirea/Main.java
+ ru.mirea.Main
